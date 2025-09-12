@@ -1,5 +1,7 @@
+import { FiArrowRight } from "react-icons/fi";
 import { MovieType } from "../../../types";
 import { MovieCard } from "./MovieCard";
+import Link from "next/link";
 
 type MoviesContainerProps = {
   movies: MovieType[];
@@ -9,8 +11,17 @@ type MoviesContainerProps = {
 export const MoviesContainer = ({ movies, title }: MoviesContainerProps) => {
   return (
     <div>
-      <h2 className="text-3xl font-bold">{title}</h2>
-      <div className="flex gap-4 flex-wrap">
+      <div className="flex justify-between max-w-[1280px] m-auto mt-[52px] ">
+        <h2 className="text-6 leading-8 font-[600]">{title}</h2>
+        <Link
+          href={"/SeeMore"}
+          className="flex gap-2 items-center text-[14px] leading-5 font-[500]"
+        >
+          {" "}
+          See more <FiArrowRight width={16} height={16} />
+        </Link>
+      </div>
+      <div className="flex justify-between gap-[32px] mt-8 flex-wrap">
         {movies?.slice(0, 10).map((movie) => (
           <MovieCard
             key={movie.id}
