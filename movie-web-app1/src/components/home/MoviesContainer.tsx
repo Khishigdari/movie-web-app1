@@ -2,6 +2,7 @@ import { FiArrowRight } from "react-icons/fi";
 import { MovieType } from "../../../types";
 import { MovieCard } from "./MovieCard";
 import Link from "next/link";
+import { Link2 } from "lucide-react";
 
 type MoviesContainerProps = {
   movies: MovieType[];

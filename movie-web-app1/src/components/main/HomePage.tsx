@@ -10,6 +10,7 @@ export async function HomePage() {
   const nowPlayingMovies: movieResponseType = await getMoviesList(
     "now_playing"
   );
+  // console.log("movies", upcomingMovies);
 
   return (
     <div className="inter">
