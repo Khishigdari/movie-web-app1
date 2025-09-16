@@ -29,6 +29,7 @@ export async function GenrePage({ searchParams }: GenrePageProps) {
         {filteredMoviesResponse.results.slice(0, 12).map((movie) => (
           <MovieCard
             key={movie.id}
+            id={movie.id}
             title={movie.title}
             rating={movie.vote_average}
             image={movie.poster_path}

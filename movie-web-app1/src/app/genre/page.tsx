@@ -57,37 +57,42 @@ const Genre = async ({ searchParams }: GenrePageProps) => {
       </div>
       <div>
         {/* <h4 className="text-5 leading-7 font-[600] mb-8"> */}
-
-        <h4 className="text-5 leading-7 font-[600] mb-8">
-          {filteredMoviesResponse.results.length} titles in {genreName.name}
-        </h4>
-        {/* </h4> */}
-        <div className="inter flex gap-[16px] mt-8 flex-wrap">
-          {filteredMoviesResponse.results.slice(0, 12).map((movie) => (
-            <MovieCard
-              key={movie.id}
-              title={movie.title}
-              rating={movie.vote_average}
-              image={movie.poster_path}
-            />
-          ))}
-          <div className="my-8 flex justify-end">
-            <Pagination className="mr-16 justify-end">
-              <PaginationContent>
-                <PaginationItem>
-                  <PaginationPrevious href="#" />
-                </PaginationItem>
-                <PaginationItem>
-                  <PaginationLink href="#">1</PaginationLink>
-                </PaginationItem>
-                <PaginationItem>
-                  <PaginationEllipsis />
-                </PaginationItem>
-                <PaginationItem>
-                  <PaginationNext href="#" />
-                </PaginationItem>
-              </PaginationContent>
-            </Pagination>
+        <div className="flex gap-2">
+          <div className="border boder-[#E4E4E7] h-[1500px] w-0 mr-[16px] ml-1"></div>
+          <div>
+            <h4 className="text-5 leading-7 font-[600] mb-8">
+              {filteredMoviesResponse.results.length} titles in {genreName.name}
+            </h4>
+            {/* </h4> */}
+            <div className="inter flex gap-[16px] mt-8 flex-wrap">
+              {filteredMoviesResponse.results.slice(0, 12).map((movie) => (
+                <MovieCard
+                  key={movie.id}
+                  id={movie.id}
+                  title={movie.title}
+                  rating={movie.vote_average}
+                  image={movie.poster_path}
+                />
+              ))}
+              <div className="my-8 flex justify-end">
+                <Pagination className="mr-16 justify-end">
+                  <PaginationContent>
+                    <PaginationItem>
+                      <PaginationPrevious href="#" />
+                    </PaginationItem>
+                    <PaginationItem>
+                      <PaginationLink href="#">1</PaginationLink>
+                    </PaginationItem>
+                    <PaginationItem>
+                      <PaginationEllipsis />
+                    </PaginationItem>
+                    <PaginationItem>
+                      <PaginationNext href="#" />
+                    </PaginationItem>
+                  </PaginationContent>
+                </Pagination>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -7,7 +7,7 @@ export const Footer = () => {
   return (
     <div className="mt-[51px] py-10 px-20 bg-[#4338CA] text-[14px] leading-5 text-[#FAFAFA] flex justify-between">
       <div>
-        <Image src={"./images/Logo.svg"} alt="" width={92} height={20} />
+        <Image src={"/images/Logo.svg"} alt="" width={92} height={20} />
         <p className="mt-3">© 2024 Movie Z. All Rights Reserved.</p>
       </div>
       <div className="flex gap-24">

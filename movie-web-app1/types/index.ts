@@ -25,3 +25,15 @@ export type GenreType = {
 export type GenreResponseType = {
   genres: GenreType[];
 };
+
+export type CrewType = {
+  id: number;
+  name: string;
+  job: string;
+  known_for_department: string;
+};
+
+export type CrewResponseType = {
+  crew: CrewType[];
+  cast: CrewType[];
+};

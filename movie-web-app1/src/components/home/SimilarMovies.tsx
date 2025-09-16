@@ -16,11 +16,10 @@ type movieCardProps = {
   image: string;
   id: number;
 };
-
-export const MovieCard = ({ title, rating, image, id }: movieCardProps) => {
+export const SimilarMovies = ({ title, rating, image, id }: movieCardProps) => {
   return (
     <Link href={`/detail/${id}`}>
-      <Card className="w-[230px] bg-secondary p-0 overflow-hidden gap-2 shadow-none border-0 flex">
+      <Card className="w-[190px] bg-secondary p-0 overflow-hidden gap-2 shadow-none border-0 flex mt-8">
         <CardContent className="p-0  ">
           <div className=" border-0 bg-[#000000]">
             <Image

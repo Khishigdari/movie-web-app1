@@ -24,6 +24,7 @@ export default async function SeeMore({ movies, title }: moviesTypeProps) {
         {movies?.slice(0, 10).map((movie) => (
           <MovieCard
             key={movie.id}
+            id={movie.id}
             title={movie.title}
             rating={movie.vote_average}
             image={movie.poster_path}

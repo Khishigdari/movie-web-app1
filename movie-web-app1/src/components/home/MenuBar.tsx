@@ -12,9 +12,9 @@ export const MenuBar = () => {
         className="max-w-[1280px] m-auto px-20 py-[11.5px] flex justify-between items-center mb-6
     "
       >
-        <Link href="#">
+        <Link href="/">
           <Image
-            src={"./images/LogoLightMode.svg"}
+            src={"/images/LogoLightMode.svg"}
             alt=""
             width={92}
             height={20}
