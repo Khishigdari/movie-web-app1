@@ -14,9 +14,11 @@ import { MovieType } from "../../../types";
 import { FaStar } from "react-icons/fa";
 import { Button } from "../ui/button";
 import { FiPlay } from "react-icons/fi";
+import { getMovieTrailer } from "../../../utils/get-data";
 
 type MovieCarouselProps = {
   movies: MovieType[];
+  // id: string;
 };
 
 export function MovieCarousel({ movies }: MovieCarouselProps) {
@@ -36,6 +38,9 @@ export function MovieCarousel({ movies }: MovieCarouselProps) {
       setCurrent(api.selectedScrollSnap() + 1);
     });
   }, [api]);
+
+  // const trailer = await getMovieTrailer(id);
+  // console.log("trailer", trailer);
 
   return (
     <div className="relative">

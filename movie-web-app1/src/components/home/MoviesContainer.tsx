@@ -15,7 +15,7 @@ export const MoviesContainer = ({ movies, title }: MoviesContainerProps) => {
       <div className="flex justify-between max-w-[1280px] m-auto mt-[52px] ">
         <h2 className="text-6 leading-8 font-[600]">{title}</h2>
         <Link
-          href={"/SeeMore"}
+          href={"/homeSeeMore"}
           className="flex gap-2 items-center text-[14px] leading-5 font-[500]"
         >
           {" "}
