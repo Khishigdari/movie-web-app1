@@ -125,7 +125,7 @@ export const getNOwPlayingMovies = async () => {
       method: "GET",
       headers: {
         accept: "application/json",
-        Authorization: `Bearer ${process.env.TMDB_ACCESS_KEY}`,
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_KEY_TMBD_ACCESS_KEY}`,
       },
     }
   );
@@ -140,7 +140,7 @@ export const getPopularMovies = async () => {
       method: "GET",
       headers: {
         accept: "applocation/json",
-        Authorization: `Bearer ${process.env.TMDB_ACCESS_KEY}`,
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_KEY_TMBD_ACCESS_KEY}`,
       },
     }
   );
@@ -156,7 +156,7 @@ export const getTopRatedMovies = async () => {
       method: "GET",
       headers: {
         accept: "application/json",
-        Authorization: `Bearer ${process.env.TMDB_ACCESS_KEY}`,
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_KEY_TMBD_ACCESS_KEY}`,
       },
     }
   );
@@ -171,7 +171,7 @@ export const getUpcomingMovies = async () => {
       method: "GET",
       headers: {
         accept: "application/json",
-        Authorization: `Bearer ${process.env.TMDB_ACCESS_KEY}`,
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_KEY_TMBD_ACCESS_KEY}`,
       },
     }
   );

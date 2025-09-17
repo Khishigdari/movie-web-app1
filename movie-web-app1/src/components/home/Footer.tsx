@@ -2,12 +2,16 @@ import React from "react";
 import Image from "next/image";
 import { HiOutlineMail } from "react-icons/hi";
 import { FiPhone } from "react-icons/fi";
+import Link from "next/link";
 
 export const Footer = () => {
   return (
     <div className="mt-[51px] py-10 px-20 bg-[#4338CA] text-[14px] leading-5 text-[#FAFAFA] flex justify-between">
       <div>
-        <Image src={"/images/Logo.svg"} alt="" width={92} height={20} />
+        <Link href={"/"}>
+          <Image src={"/images/Logo.svg"} alt="" width={92} height={20} />
+        </Link>
+
         <p className="mt-3">© 2024 Movie Z. All Rights Reserved.</p>
       </div>
       <div className="flex gap-24">

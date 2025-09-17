@@ -43,6 +43,7 @@ export function MovieCarousel({ movies }: MovieCarouselProps) {
   // console.log("trailer", trailer);
 
   return (
+    // <Link href={`/detail/${id}`}></Link>
     <div className="relative">
       <Carousel setApi={setApi} className="w-screen ">
         <CarouselContent>
