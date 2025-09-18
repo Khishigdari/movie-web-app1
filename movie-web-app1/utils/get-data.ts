@@ -178,3 +178,35 @@ export const getUpcomingMovies = async () => {
   const data = await res.json();
   return data;
 };
+
+export const getSearchedMovies = async (searchValue: string) => {
+  const res = await fetch(
+    `https://api.themoviedb.org/3/search/movie?query=${searchValue}&language=en-US&page=${1}`,
+    {
+      method: "GET",
+      headers: {
+        accept: "application/json",
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_KEY_TMBD_ACCESS_KEY}`,
+      },
+    }
+  );
+  const data = await res.json();
+  console.log("Data irlee", data);
+  return data;
+};
+
+export const getMovieDetailSearchBar = async (movieId: string) => {
+  const res = await fetch(
+    `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`,
+    {
+      method: "GET",
+      headers: {
+        accept: "application/json",
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_KEY_TMBD_ACCESS_KEY}`,
+      },
+    }
+  );
+  const data = await res.json();
+  console.log("Data irlee", data);
+  return data;
+};

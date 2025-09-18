@@ -5,3 +5,5 @@ export * from "./MenuBar";
 export * from "./Footer";
 export * from "./GenrePage";
 export * from "./SimilarMovies";
+export * from "./SearchbarMovieCard";
+export * from "./SimilarSeeMore";

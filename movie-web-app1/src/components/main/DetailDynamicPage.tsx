@@ -132,7 +132,7 @@ export const DetailDynamicPage = async ({ id }: DetailDynamicPageProps) => {
         <div className="flex justify-between items-center">
           <h3 className="text-[24px] leading-8 font-[600]">More like this</h3>
           <Link
-            href={"/SeeMore"}
+            href={`/similarSeeMore?id=${id}`}
             className="flex gap-2 items-center text-[14px] leading-5 font-[500]"
           >
             {" "}

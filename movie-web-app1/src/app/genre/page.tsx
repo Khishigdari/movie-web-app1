@@ -17,6 +17,7 @@ import {
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+// import { NavigationMenu } from "@radix-ui/react-navigation-menu";
 type GenrePageProps = {
   searchParams: Promise<{ id: string[]; page: string; name: string }>;
 };
@@ -34,6 +35,8 @@ const Genre = async ({ searchParams }: GenrePageProps) => {
   const genreName: GenreType = await getMovieGenres();
   return (
     <div className="mt-[52px] w-[1437px]  flex gap-10 justify-between m-auto">
+      {" "}
+      {/* <NavigationMenu> */}
       <div>
         <h2 className="mb-8 text-[30px] leading-9 font-[600]">Search filter</h2>
         <div className="mb-5">
@@ -55,6 +58,7 @@ const Genre = async ({ searchParams }: GenrePageProps) => {
           ))}
         </div>
       </div>
+      {/* </NavigationMenu> */}
       <div>
         {/* <h4 className="text-5 leading-7 font-[600] mb-8"> */}
         <div className="flex gap-2">
@@ -74,24 +78,24 @@ const Genre = async ({ searchParams }: GenrePageProps) => {
                   image={movie.poster_path}
                 />
               ))}
-              <div className="my-8 flex justify-end">
-                <Pagination className="mr-16 justify-end">
-                  <PaginationContent>
-                    <PaginationItem>
-                      <PaginationPrevious href="#" />
-                    </PaginationItem>
-                    <PaginationItem>
-                      <PaginationLink href="#">1</PaginationLink>
-                    </PaginationItem>
-                    <PaginationItem>
-                      <PaginationEllipsis />
-                    </PaginationItem>
-                    <PaginationItem>
-                      <PaginationNext href="#" />
-                    </PaginationItem>
-                  </PaginationContent>
-                </Pagination>
-              </div>
+            </div>
+            <div className="my-8 flex justify-end">
+              <Pagination className="justify-end">
+                <PaginationContent>
+                  <PaginationItem>
+                    <PaginationPrevious href="#" />
+                  </PaginationItem>
+                  <PaginationItem>
+                    <PaginationLink href="#">1</PaginationLink>
+                  </PaginationItem>
+                  <PaginationItem>
+                    <PaginationEllipsis />
+                  </PaginationItem>
+                  <PaginationItem>
+                    <PaginationNext href="#" />
+                  </PaginationItem>
+                </PaginationContent>
+              </Pagination>
             </div>
           </div>
         </div>

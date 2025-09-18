@@ -5,3 +5,4 @@ export * from "./HomePageSkeleton";
 // export * from "./SeeMorePage";
 export * from "./DetailDynamicPage";
 export * from "./HomeSeeMorePage";
+export * from "./SearchSection";

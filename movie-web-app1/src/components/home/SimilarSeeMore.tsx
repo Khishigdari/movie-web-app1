@@ -16,17 +16,22 @@ type movieCardProps = {
   image: string;
   id: number;
 };
-export const SimilarMovies = ({ title, rating, image, id }: movieCardProps) => {
+export const SimilarSeeMore = ({
+  title,
+  rating,
+  image,
+  id,
+}: movieCardProps) => {
   return (
     <Link href={`/detail/${id}`}>
-      <Card className="w-[190px] bg-secondary p-0 overflow-hidden gap-2 shadow-none border-0 flex mt-8">
-        <CardContent className="p-0  ">
-          <div className=" border-0 bg-[#000000] w-[190px] h-[280px]">
+      <Card className="w-[230px] bg-secondary p-0 overflow-hidden gap-2 shadow-none border-0 flex">
+        <CardContent className="p-0  w-[230px]">
+          <div className=" border-0 bg-[#000000]  h-[340px]">
             <Image
               src={`https://image.tmdb.org/t/p/w500/${image}`}
               alt=""
-              width={190}
-              height={281}
+              width={230}
+              height={340}
               className="hover:opacity-50 hover:duration-[0.5s]"
             ></Image>
           </div>

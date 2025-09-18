@@ -3,13 +3,13 @@ import { ThemeToggler } from "./ThemeToggler";
 import Link from "next/link";
 import { Search } from "lucide-react";
 import { Input } from "../ui/input";
-import { GenreDropDown } from "../main";
+import { GenreDropDown, SearchSection } from "../main";
 
 export const MenuBar = () => {
   return (
-    <header className="w-full">
+    <header className="w-full ">
       <div
-        className="max-w-[1280px] m-auto px-20 py-[11.5px] flex justify-between items-center mb-6
+        className="max-w-[1280px] m-auto px-20 py-[11.5px] flex justify-between items-center mb-6 
     "
       >
         <Link href="/">
@@ -25,11 +25,12 @@ export const MenuBar = () => {
           <GenreDropDown />
           <div className="flex items-center">
             <Search className="w-3 h-3 -mr-6" />
-            <Input
+            {/* <Input
               type="text"
               placeholder="Search.."
               className="w-[379px] pl-8"
-            />
+            /> */}
+            <SearchSection />
           </div>
         </div>
 
