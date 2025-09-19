@@ -58,34 +58,50 @@ const SearchResults = ({
   searchValue,
 }: SearchResultsProps) => {
   return (
-    <Popover open={isOpen}>
+    <Popover
+      open={isOpen}
+      anchorOrigin={{
+        vertical: "bottom",
+        horizontal: 100,
+      }}
+    >
       <PopoverTrigger className="hidden"></PopoverTrigger>
-      <PopoverContent className="w-[577px] sticky mt-[52px]">
-        {foundMovies?.results.slice(0, 5).map((movie) => {
-          return (
-            // <div
-            //   key={movie.id}
-            //   title={movie.title}
-            //   rating={movie.vote_average}
-            //   image={movie.poster_path}
-            // >
-            //   {movie.title}
-            // </div>
-            <SearchbarMovieCard
-              key={movie.id}
-              id={movie.id}
-              title={movie.title}
-              rating={movie.vote_average}
-              image={movie.poster_path}
-            />
-          );
-        })}
+      {/* <div className=""> */}
+      <PopoverContent
+        className="w-[577px] justify-center flex flex-col"
+        side="bottom"
+        sideOffset={50}
+        align="center"
+        // sideOffset={665}
+      >
+        <div>
+          {foundMovies?.results.slice(0, 5).map((movie) => {
+            return (
+              // <div
+              //   key={movie.id}
+              //   title={movie.title}
+              //   rating={movie.vote_average}
+              //   image={movie.poster_path}
+              // >
+              //   {movie.title}
+              // </div>
+              <SearchbarMovieCard
+                key={movie.id}
+                id={movie.id}
+                title={movie.title}
+                rating={movie.vote_average}
+                image={movie.poster_path}
+              />
+            );
+          })}
+        </div>
         <Link href={`/search?value=${searchValue}`}>
           <p className="mt-[10px] text-[14px] leading-[20px] font-[500]">
             See all result for "{searchValue}"
           </p>
         </Link>
       </PopoverContent>
+      {/* </div> */}
     </Popover>
   );
 };

@@ -32,7 +32,7 @@ export const SearchbarMovieCard = ({
           <CardContent className="p-0 w-[67px]">
             <div className=" border-0 h-[100px] w-[67px] ">
               <Image
-                src={`https://image.tmdb.org/t/p/w500/${image}`}
+                src={`https://image.tmdb.org/t/p/original/${image}`}
                 alt=""
                 width={67}
                 height={100}

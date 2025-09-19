@@ -67,12 +67,12 @@ export const DetailDynamicPage = async ({ id }: DetailDynamicPageProps) => {
         </div>
         <div className="flex gap-[32px] mb-[32px] ">
           <img
-            src={`https://image.tmdb.org/t/p/w500/${detail.poster_path}`}
+            src={`https://image.tmdb.org/t/p/original/${detail.poster_path}`}
             className="w-[290px] h-[428px] bg-[#F4F4F5] rounded-lg"
           ></img>
           <div className="relative">
             <img
-              src={`https://image.tmdb.org/t/p/w500/${detail.backdrop_path}`}
+              src={`https://image.tmdb.org/t/p/original/${detail.backdrop_path}`}
               className="w-[760px] h-[428px] bg-[#F4F4F5] rounded-lg "
             ></img>
             <div className="flex gap-3 absolute top-[364px] left-6 items-center text-white">

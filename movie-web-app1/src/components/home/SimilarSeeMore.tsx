@@ -28,7 +28,7 @@ export const SimilarSeeMore = ({
         <CardContent className="p-0  w-[230px]">
           <div className=" border-0 bg-[#000000]  h-[340px]">
             <Image
-              src={`https://image.tmdb.org/t/p/w500/${image}`}
+              src={`https://image.tmdb.org/t/p/original/${image}`}
               alt=""
               width={230}
               height={340}

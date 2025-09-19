@@ -54,7 +54,7 @@ export function MovieCarousel({ movies }: MovieCarouselProps) {
                   <CardContent className="flex aspect-video max-h-[600px] items-center justify-center overflow-hidden p-0">
                     <img
                       className="w-full object-cover"
-                      src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
+                      src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
                     />
                     <div className="absolute text-[#FAFAFA] left-[10%] top-[30%]">
                       <p className="text-[16px] leading-[24px]">Now Playing:</p>

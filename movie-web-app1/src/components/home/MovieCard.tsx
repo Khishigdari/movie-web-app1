@@ -24,7 +24,7 @@ export const MovieCard = ({ title, rating, image, id }: movieCardProps) => {
         <CardContent className="p-0  ">
           <div className=" border-0 bg-[#000000]">
             <Image
-              src={`https://image.tmdb.org/t/p/w500/${image}`}
+              src={`https://image.tmdb.org/t/p/original/${image}`}
               alt=""
               width={230}
               height={340}
