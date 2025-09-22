@@ -37,3 +37,14 @@ export type CrewResponseType = {
   crew: CrewType[];
   cast: CrewType[];
 };
+
+export type TrailerType = {
+  id: string;
+  key: string;
+  type: string;
+};
+
+export type TrailerResponseType = {
+  id: number;
+  results: TrailerType[];
+};

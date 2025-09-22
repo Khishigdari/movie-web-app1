@@ -17,9 +17,21 @@ export async function HomePage() {
       <MovieCarousel movies={nowPlayingMovies.results} />
       <div className="max-w-[1280px] m-auto">
         <div className="inter flex gap-[32px] mt-8 flex-wrap justify-center">
-          <MoviesContainer movies={upcomingMovies.results} title="Upcoming" />
-          <MoviesContainer movies={popularMovies.results} title="Popular" />
-          <MoviesContainer movies={topRatedMovies.results} title="Top Rated" />
+          <MoviesContainer
+            movies={upcomingMovies.results}
+            title="Upcoming"
+            link="upcoming"
+          />
+          <MoviesContainer
+            movies={popularMovies.results}
+            title="Popular"
+            link="popular"
+          />
+          <MoviesContainer
+            movies={topRatedMovies.results}
+            title="Top Rated"
+            link="top_rated"
+          />
         </div>
       </div>
     </div>

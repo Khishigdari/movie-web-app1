@@ -7,9 +7,14 @@ import { Link2 } from "lucide-react";
 type MoviesContainerProps = {
   movies: MovieType[];
   title: string;
+  link: string;
 };
 
-export const MoviesContainer = ({ movies, title }: MoviesContainerProps) => {
+export const MoviesContainer = ({
+  movies,
+  title,
+  link,
+}: MoviesContainerProps) => {
   return (
     <div>
       <div className="flex justify-between max-w-[1280px] m-auto mt-[52px] ">

@@ -13,18 +13,15 @@ export const SearchSection = () => {
   const [foundMovies, setFoundMovies] = useState<movieResponseType | null>(
     null
   );
-  const [isOpen, setIsOpen] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
   const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setSearchValue(value);
     const foundData = await getSearchedMovies(value);
-    if (value.length > 0) {
-      setIsOpen(true);
-    } else {
-      setIsOpen(false);
-    }
     setFoundMovies(foundData);
   };
+
+  const isOpen = isFocused && searchValue;
 
   return (
     <div className="relative">
@@ -34,14 +31,15 @@ export const SearchSection = () => {
         className="w-[379px] pl-8"
         onChange={handleChange}
         value={searchValue}
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
       />
-      <div className="sticky">
-        <SearchResults
-          isOpen={isOpen}
-          foundMovies={foundMovies}
-          searchValue={searchValue}
-        />
-      </div>
+
+      <SearchResults
+        isOpen={isOpen}
+        foundMovies={foundMovies}
+        searchValue={searchValue}
+      />
     </div>
   );
 };
@@ -50,28 +48,33 @@ type SearchResultsProps = {
   isOpen: boolean;
   foundMovies: MovieType[];
   searchValue: string;
+  setIsOpen: boolean;
 };
 
 const SearchResults = ({
   isOpen,
   foundMovies,
   searchValue,
+  setIsOpen,
 }: SearchResultsProps) => {
   return (
     <Popover
       open={isOpen}
-      anchorOrigin={{
-        vertical: "bottom",
-        horizontal: 100,
-      }}
+      // onOpenChange={setIsOpen}
+      // anchorOrigin={{
+      //   vertical: "bottom",
+      //   horizontal: 100,
+      // }}
     >
-      <PopoverTrigger className="hidden"></PopoverTrigger>
+      <PopoverTrigger className=" flex justify-self-center"></PopoverTrigger>
       {/* <div className=""> */}
       <PopoverContent
         className="w-[577px] justify-center flex flex-col"
         side="bottom"
-        sideOffset={50}
+        sideOffset={4.5}
         align="center"
+        onOpenAutoFocus={(e) => e.preventDefault()}
+        onCloseAutoFocus={(e) => e.preventDefault()}
         // sideOffset={665}
       >
         <div>

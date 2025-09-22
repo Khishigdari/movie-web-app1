@@ -8,12 +8,17 @@ import {
   getMovieCrew,
   getMovieDetail,
   getMovieGenre,
+  getMovieTrailers,
   getSimilarMovie,
 } from "../../../utils/get-data";
-import { CrewResponseType, GenreResponseType, MovieType } from "../../../types";
-import { Button } from "../ui/button";
-import { PlayIcon } from "lucide-react";
-import Image from "next/image";
+import {
+  CrewResponseType,
+  GenreResponseType,
+  MovieType,
+  TrailerResponseType,
+} from "../../../types";
+
+import { TrailerDialog } from "../trailer/TrailerDialog";
 
 type DetailDynamicPageProps = {
   id: string;
@@ -36,6 +41,9 @@ export const DetailDynamicPage = async ({ id }: DetailDynamicPageProps) => {
 
   const similar = await getSimilarMovie(id);
   console.log("similar", similar);
+
+  const trailerData: TrailerResponseType = await getMovieTrailers(id);
+  const trailer = trailerData.results.find((item) => item.type === "Trailer");
 
   return (
     <div>
@@ -76,9 +84,10 @@ export const DetailDynamicPage = async ({ id }: DetailDynamicPageProps) => {
               className="w-[760px] h-[428px] bg-[#F4F4F5] rounded-lg "
             ></img>
             <div className="flex gap-3 absolute top-[364px] left-6 items-center text-white">
-              <Button className=" rounded-full bg-white">
+              <TrailerDialog youtubeKey={trailer?.key} />
+              {/* <Button className=" rounded-full bg-white">
                 <PlayIcon className="stroke-black hover:stroke-white" />
-              </Button>
+              </Button> */}
               <p className="text-[16px] leading-[24px]">Play trailer</p>
               <p className="text-[16px] leading-[20px]">2:35</p>
             </div>

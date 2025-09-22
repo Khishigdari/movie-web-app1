@@ -8,10 +8,9 @@ import {
   CardTitle,
 } from "../ui/card";
 import { FaStar } from "react-icons/fa";
-import Link from "next/link";
 import { FiArrowRight } from "react-icons/fi";
 
-type SearchovieCardProps = {
+type SearchMovieCardProps = {
   title: string;
   rating: number;
   image: string;
@@ -23,7 +22,7 @@ export const SearchbarMovieCard = ({
   rating,
   image,
   id,
-}: SearchovieCardProps) => {
+}: SearchMovieCardProps) => {
   return (
     <div className="bg-[#FFFFFF] rounded-lg  m-auto">
       {/* <Link href={`/detail/${id}`}> */}
@@ -62,7 +61,6 @@ export const SearchbarMovieCard = ({
               <p>year</p>
               <a
                 href={`/detail/${id}`}
-                // href={"/homeSeeMore"}
                 className="flex gap-2 items-center text-[14px] leading-5 font-[500]"
               >
                 {" "}

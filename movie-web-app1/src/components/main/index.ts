@@ -6,3 +6,4 @@ export * from "./HomePageSkeleton";
 export * from "./DetailDynamicPage";
 export * from "./HomeSeeMorePage";
 export * from "./SearchSection";
+export * from "./SearchMovieCard";
