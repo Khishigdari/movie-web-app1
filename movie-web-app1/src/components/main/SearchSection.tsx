@@ -23,6 +23,10 @@ export const SearchSection = () => {
 
   const isOpen = isFocused && searchValue;
 
+  const handleBlur = () => {
+    setTimeout(() => setIsFocused(false), 300);
+  };
+
   return (
     <div className="relative">
       <Input
@@ -32,7 +36,8 @@ export const SearchSection = () => {
         onChange={handleChange}
         value={searchValue}
         onFocus={() => setIsFocused(true)}
-        onBlur={() => setIsFocused(false)}
+        // onBlur={() => setIsFocused(false)}
+        onBlur={handleBlur}
       />
 
       <SearchResults
@@ -46,7 +51,8 @@ export const SearchSection = () => {
 
 type SearchResultsProps = {
   isOpen: boolean;
-  foundMovies: MovieType[];
+  // foundMovies: MovieType[];
+  foundMovies: movieResponseType;
   searchValue: string;
   setIsOpen: boolean;
 };
@@ -55,7 +61,6 @@ const SearchResults = ({
   isOpen,
   foundMovies,
   searchValue,
-  setIsOpen,
 }: SearchResultsProps) => {
   return (
     <Popover
@@ -80,14 +85,6 @@ const SearchResults = ({
         <div>
           {foundMovies?.results.slice(0, 5).map((movie) => {
             return (
-              // <div
-              //   key={movie.id}
-              //   title={movie.title}
-              //   rating={movie.vote_average}
-              //   image={movie.poster_path}
-              // >
-              //   {movie.title}
-              // </div>
               <SearchbarMovieCard
                 key={movie.id}
                 id={movie.id}

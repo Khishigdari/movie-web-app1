@@ -7,7 +7,7 @@ import { GenreDropDown, SearchSection } from "../main";
 
 export const MenuBar = () => {
   return (
-    <header className="w-full sticky top-0 z-10 bg-white">
+    <header className="w-full sticky top-0 z-10">
       <div
         className="max-w-[1280px] m-auto px-20 py-[11.5px] flex justify-between items-center mb-6 
     "

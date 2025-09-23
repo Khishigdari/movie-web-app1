@@ -1,5 +1,5 @@
 import { MovieType } from "../../../types";
-import { getMovieTrailer } from "../../../utils/get-data";
+// import { getMovieTrailer } from "../../../utils/get-data";
 import { MovieCard } from "../home";
 import {
   Pagination,
