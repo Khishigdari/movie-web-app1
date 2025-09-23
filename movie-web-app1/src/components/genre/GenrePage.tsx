@@ -1,6 +1,6 @@
 import { movieResponseType } from "../../../types";
 import { getMoviesByGenreId } from "../../../utils/get-data";
-import { MovieCard } from "./MovieCard";
+import { MovieCard } from "../home/MovieCard";
 import {
   Pagination,
   PaginationContent,

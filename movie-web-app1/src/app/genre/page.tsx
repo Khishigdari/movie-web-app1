@@ -3,6 +3,7 @@ import {
   GenreResponseType,
   GenreType,
   movieResponseType,
+  MovieType,
 } from "../../../types";
 import { getMovieGenres, getMoviesByGenreId } from "../../../utils/get-data";
 import {
@@ -33,6 +34,7 @@ const Genre = async ({ searchParams }: GenrePageProps) => {
     page || "1"
   );
   const genreName: GenreType = await getMovieGenres();
+  // console.log(genreName, "genre name");
   return (
     <div className="mt-[52px] w-[1437px]  flex gap-10 justify-between m-auto">
       {" "}
@@ -65,7 +67,7 @@ const Genre = async ({ searchParams }: GenrePageProps) => {
           <div className="border boder-[#E4E4E7] h-[1500px] w-0 mr-[16px] ml-1"></div>
           <div>
             <h4 className="text-5 leading-7 font-[600] mb-8">
-              {filteredMoviesResponse.results.length} titles in {genreName.name}
+              {filteredMoviesResponse.total_results} titles in {genreName.name}
             </h4>
             {/* </h4> */}
             <div className="inter flex gap-[16px] mt-8 flex-wrap">

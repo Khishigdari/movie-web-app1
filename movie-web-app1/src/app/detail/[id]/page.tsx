@@ -1,5 +1,5 @@
 import { DetailDynamicPage } from "@/components";
-import DetailPageSkeleton from "@/components/main/DetailPageSkeleton";
+import DetailPageSkeleton from "@/components/detail/DetailPageSkeleton";
 import { Suspense } from "react";
 import {
   getMovieDetailSearchBar,

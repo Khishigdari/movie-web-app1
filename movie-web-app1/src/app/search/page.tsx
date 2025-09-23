@@ -27,7 +27,7 @@ const Home = async ({ searchParams }: SearchPageProps) => {
       <div className="flex justify-between">
         <div className="mt-[32px]">
           <p className="text-[20px] leading-[28px] font-600 font-semibold mb-[32px]">
-            {searchResponse.results.length} result for "{searchValue}"
+            {searchResponse.total_results} result for "{searchValue}"
           </p>
           <div className="flex gap-[48px] flex-wrap max-w-[804px]">
             {searchResponse?.results.slice(0, 8).map((movie) => {

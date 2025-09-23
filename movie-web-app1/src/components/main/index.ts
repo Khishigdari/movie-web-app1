@@ -1,9 +1,9 @@
-export * from "./GenreDropdown";
+export * from "../genre/GenreDropdown";
 export * from "./MovieCarousel";
 export * from "./HomePage";
 export * from "./HomePageSkeleton";
 // export * from "./SeeMorePage";
-export * from "./DetailDynamicPage";
+export * from "../detail/DetailDynamicPage";
 export * from "./HomeSeeMorePage";
-export * from "./SearchSection";
-export * from "./SearchMovieCard";
+export * from "../search/SearchSection";
+export * from "../search/SearchMovieCard";
