@@ -20,7 +20,7 @@ type movieCardProps = {
 export const MovieCard = ({ title, rating, image, id }: movieCardProps) => {
   return (
     <Link href={`/detail/${id}`}>
-      <Card className="w-[230px] bg-secondary p-0 overflow-hidden gap-2 shadow-none border-0 flex">
+      <Card className="w-[230px] md:max-sm:w-[157px] bg-secondary p-0 overflow-hidden gap-2 shadow-none border-0 flex">
         <CardContent className="p-0  ">
           <div className=" border-0 bg-[#000000]">
             <Image
@@ -40,7 +40,7 @@ export const MovieCard = ({ title, rating, image, id }: movieCardProps) => {
               <span className="text-[12px] text-[#71717A] leading-4">/10</span>
             </p>
           </CardDescription>
-          <CardTitle className="text-[18px] leading-7 font-normal ">
+          <CardTitle className="text-[18px] leading-7 font-normal truncate">
             {title}
           </CardTitle>
         </CardFooter>

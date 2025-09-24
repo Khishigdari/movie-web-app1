@@ -44,7 +44,7 @@ export const SimilarSeeMore = ({
               <span className="text-[12px] text-[#71717A] leading-4">/10</span>
             </p>
           </CardDescription>
-          <CardTitle className="text-[18px] leading-7 font-normal ">
+          <CardTitle className="text-[18px] leading-7 font-normal truncate">
             {title}
           </CardTitle>
         </CardFooter>

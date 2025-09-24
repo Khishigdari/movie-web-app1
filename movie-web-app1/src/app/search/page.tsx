@@ -10,7 +10,6 @@ type SearchPageProps = {
 };
 
 const Home = async ({ searchParams }: SearchPageProps) => {
-  // console.log(searchResponse, "search");
   const genresResponse: GenreResponseType = await getMovieGenres();
   const params = await searchParams;
   const searchValue = params.value;
@@ -31,8 +30,6 @@ const Home = async ({ searchParams }: SearchPageProps) => {
           </p>
           <div className="flex gap-[48px] flex-wrap max-w-[804px]">
             {searchResponse?.results.slice(0, 8).map((movie) => {
-              // console.log(searchResponse.results, "movies");
-              // console.log(searchValue, "search value");
               return (
                 <SearchMovieCard
                   key={movie.id}

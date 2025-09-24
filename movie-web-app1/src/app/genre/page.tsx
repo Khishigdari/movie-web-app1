@@ -3,7 +3,6 @@ import {
   GenreResponseType,
   GenreType,
   movieResponseType,
-  MovieType,
 } from "../../../types";
 import { getMovieGenres, getMoviesByGenreId } from "../../../utils/get-data";
 import {
@@ -18,7 +17,6 @@ import {
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-// import { NavigationMenu } from "@radix-ui/react-navigation-menu";
 type GenrePageProps = {
   searchParams: Promise<{ id: string[]; page: string; name: string }>;
 };
@@ -28,7 +26,7 @@ const Genre = async ({ searchParams }: GenrePageProps) => {
   const params = await searchParams;
   const id = params.id;
   const page = params.page;
-  // const name = params.name;
+
   const filteredMoviesResponse: movieResponseType = await getMoviesByGenreId(
     id,
     page || "1"
@@ -38,7 +36,6 @@ const Genre = async ({ searchParams }: GenrePageProps) => {
   return (
     <div className="mt-[52px] w-[1437px]  flex gap-10 justify-between m-auto">
       {" "}
-      {/* <NavigationMenu> */}
       <div>
         <h2 className="mb-8 text-[30px] leading-9 font-[600]">Search filter</h2>
         <div className="mb-5">
@@ -60,16 +57,14 @@ const Genre = async ({ searchParams }: GenrePageProps) => {
           ))}
         </div>
       </div>
-      {/* </NavigationMenu> */}
       <div>
-        {/* <h4 className="text-5 leading-7 font-[600] mb-8"> */}
         <div className="flex gap-2">
           <div className="border boder-[#E4E4E7] h-[1500px] w-0 mr-[16px] ml-1"></div>
           <div>
             <h4 className="text-5 leading-7 font-[600] mb-8">
               {filteredMoviesResponse.total_results} titles in {genreName.name}
             </h4>
-            {/* </h4> */}
+
             <div className="inter flex gap-[16px] mt-8 flex-wrap">
               {filteredMoviesResponse.results.slice(0, 12).map((movie) => (
                 <MovieCard

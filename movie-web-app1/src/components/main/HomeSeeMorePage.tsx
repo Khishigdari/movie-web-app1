@@ -1,20 +1,30 @@
-import { MovieType } from "../../../types";
-// import { getMovieTrailer } from "../../../utils/get-data";
+import { movieResponseType, MovieType } from "../../../types";
+import { getMoviesList } from "../../../utils/get-data";
+
 import { MovieCard } from "../home";
-import {
-  Pagination,
-  PaginationContent,
-  PaginationEllipsis,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
-} from "@/components/ui/pagination";
+// import {
+//   Pagination,
+//   PaginationContent,
+//   PaginationEllipsis,
+//   PaginationItem,
+//   PaginationLink,
+//   PaginationNext,
+//   PaginationPrevious,
+// } from "@/components/ui/pagination";
+import SeeMorePagination from "../pagination/SeeMorePagination";
 type HomeSeeMorePageProps = {
-  movies: MovieType[];
-  title: string;
+  searchParams: Promise<{ movies: MovieType[]; title: string; page: string }>;
 };
-export const HomeSeeMorePage = ({ movies, title }: HomeSeeMorePageProps) => {
+
+export const HomeSeeMorePage = async ({
+  searchParams,
+}: HomeSeeMorePageProps) => {
+  const params = await searchParams;
+  const title = params.title;
+  const movies = params.movies;
+  const page = params.page || "1";
+
+  // const movieRes: movieResponseType = await getMoviesList(title, page);
   return (
     <div>
       <div className="flex justify-between max-w-[1280px] m-auto ">
@@ -32,7 +42,8 @@ export const HomeSeeMorePage = ({ movies, title }: HomeSeeMorePageProps) => {
         ))}
       </div>
       <div className="my-8 flex justify-end">
-        <Pagination className=" justify-end">
+        <SeeMorePagination title={title}></SeeMorePagination>
+        {/* <Pagination className=" justify-end">
           <PaginationContent>
             <PaginationItem>
               <PaginationPrevious href="#" />
@@ -47,7 +58,7 @@ export const HomeSeeMorePage = ({ movies, title }: HomeSeeMorePageProps) => {
               <PaginationNext href="#" />
             </PaginationItem>
           </PaginationContent>
-        </Pagination>
+        </Pagination> */}
       </div>
     </div>
   );

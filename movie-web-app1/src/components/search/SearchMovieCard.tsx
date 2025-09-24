@@ -1,7 +1,3 @@
-// export const SearchMovieCard = () => {
-//   return <div>SearchMovieCard</div>;
-// };
-
 import Image from "next/image";
 import React from "react";
 import {
@@ -49,7 +45,7 @@ export const SearchMovieCard = ({
               <span className="text-[12px] text-[#71717A] leading-4">/10</span>
             </p>
           </CardDescription>
-          <CardTitle className="text-[18px] leading-7 font-normal ">
+          <CardTitle className="text-[18px] leading-7 font-normal truncate">
             {title}
           </CardTitle>
         </CardFooter>
