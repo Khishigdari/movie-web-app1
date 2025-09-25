@@ -16,6 +16,7 @@ export function ThemeToggler() {
   const { setTheme } = useTheme();
 
   return (
+    // <div className=" md:block">
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="outline" size="icon">

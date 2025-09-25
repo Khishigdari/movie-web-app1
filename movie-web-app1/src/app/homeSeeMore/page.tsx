@@ -1,20 +1,31 @@
 import { HomeSeeMorePage } from "@/components";
-import { movieResponseType } from "../../../types";
+import { movieResponseType, MovieType } from "../../../types";
 import {
+  getMoviesList,
   getNOwPlayingMovies,
   getPopularMovies,
   getTopRatedMovies,
   getUpcomingMovies,
 } from "../../../utils/get-data";
 
-interface Props {
+type Props = {
   searchParams: {
     title: string;
+    // movies: movieResponseType
+    // page: string;
   };
-}
+};
 
 const SeeMorePage = async ({ searchParams: { title } }: Props) => {
   let movies: movieResponseType;
+  // let movies: MovieType[];
+
+  // const params = searchParams;
+  // const title = params.title;
+  // // const movies = params.movies;
+  // const page = params.page || "1";
+
+  // const movieRes: movieResponseType = await getMoviesList(title, page);
 
   if (title === "Now Playing") {
     movies = await getNOwPlayingMovies();
@@ -27,7 +38,7 @@ const SeeMorePage = async ({ searchParams: { title } }: Props) => {
   }
 
   return (
-    <div className="flex justify-between max-w-[1280px] m-auto mt-[52px] ">
+    <div className="flex justify-between max-w-[1280px] m-auto md:mt-[52px] mt-0 p-5 md:p-0 ">
       <h2 className="text-6 leading-8 font-[600]"></h2>
       <div className="flex justify-between gap-[32px] mt-8 flex-wrap">
         <HomeSeeMorePage movies={movies!.results} title={title} />

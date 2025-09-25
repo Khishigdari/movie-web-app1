@@ -14,6 +14,7 @@ import { MovieType, TrailerResponseType } from "../../../types";
 import { FaStar } from "react-icons/fa";
 import { getMovieTrailers } from "../../../utils/get-data";
 import { CarouselTrailerDialog } from "../trailer/CarouselTrailerDialog";
+import { MobileCarouselDesc } from "./MobileCarouselDesc";
 
 type MovieCarouselProps = {
   movies: MovieType[];
@@ -39,28 +40,34 @@ export function MovieCarousel({ movies }: MovieCarouselProps) {
   }, [api]);
 
   return (
-    <div className="relative">
-      <Carousel setApi={setApi} className="w-screen ">
-        <CarouselContent>
-          {movies?.slice(0, 5).map((movie, index) => (
-            <MovieCarouselItem key={index} movie={movie} />
+    <div>
+      {/* <MobileCarouselDesc movie={movies}/> */}
+      <div className="relative ">
+        {/* md:block hidden */}
+        <Carousel setApi={setApi} className="w-screen ">
+          <div>
+            <CarouselContent>
+              {movies?.slice(0, 5).map((movie, index) => (
+                <MovieCarouselItem key={index} movie={movie} />
+              ))}
+            </CarouselContent>
+          </div>
+          <CarouselPrevious className="left-13" />
+          <CarouselNext className="right-13" />
+        </Carousel>
+        <div className="flex gap-2 absolute  bottom-5 left-1/2 -translate-y-1/2">
+          {Array.from({ length: count }).map((_, index) => (
+            <div
+              onClick={() => {
+                api?.scrollTo(index);
+              }}
+              key={index}
+              className={`rounded-full size-2 ${
+                index + 1 === current ? "bg-white" : "bg-gray-600"
+              }`}
+            ></div>
           ))}
-        </CarouselContent>
-        <CarouselPrevious className="left-13" />
-        <CarouselNext className="right-13" />
-      </Carousel>
-      <div className="flex gap-2 absolute  bottom-5 left-1/2 -translate-y-1/2">
-        {Array.from({ length: count }).map((_, index) => (
-          <div
-            onClick={() => {
-              api?.scrollTo(index);
-            }}
-            key={index}
-            className={`rounded-full size-2 ${
-              index + 1 === current ? "bg-white" : "bg-gray-600"
-            }`}
-          ></div>
-        ))}
+        </div>
       </div>
     </div>
   );

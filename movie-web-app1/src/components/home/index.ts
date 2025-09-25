@@ -7,3 +7,4 @@ export * from "../genre/GenrePage";
 export * from "../similar/SimilarMovies";
 export * from "../search/SearchbarMovieCard";
 export * from "../similar/SimilarSeeMore";
+export * from "./MobileSearch";

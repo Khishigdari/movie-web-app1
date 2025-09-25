@@ -15,8 +15,8 @@ export const MoviesContainer = ({
   link,
 }: MoviesContainerProps) => {
   return (
-    <div>
-      <div className="flex justify-between max-w-[1280px] m-auto mt-[52px] ">
+    <div className=" p-5 md:p-0">
+      <div className="flex justify-between max-w-[768px] md:max-w-[1280px] m-auto mt-[52px]">
         <h2 className="text-6 leading-8 font-[600]">{title}</h2>
         <Link
           href={`/homeSeeMore?title=${title}&page=1`}
@@ -26,7 +26,7 @@ export const MoviesContainer = ({
           See more <FiArrowRight width={16} height={16} />
         </Link>
       </div>
-      <div className="flex justify-between gap-[32px] mt-8 flex-wrap">
+      <div className="flex justify-between md:gap-[32px] gap-[20px] mt-8 flex-wrap">
         {movies?.slice(0, 10).map((movie) => (
           <MovieCard
             key={movie.id}

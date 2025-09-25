@@ -30,8 +30,10 @@ const DetailInfos = async ({ id }: DetailDynamicPageProps) => {
   console.log("similar", similar);
   return (
     <div>
-      <div className="text-[16px] leading-[24px] mt-5">{detail.overview}</div>
-      <div className=" mt-5 ">
+      <div className="text-[16px] leading-[24px] hidden md:block mt-5 ">
+        {detail.overview}
+      </div>
+      <div className=" mt-5 px-5 md:px-0">
         <div className="flex gap-[53px]">
           <div className="text-[16px] leading-[28px] font-[700]  w-16 ">
             Director

@@ -12,17 +12,33 @@ import { MovieCard } from "../home";
 //   PaginationPrevious,
 // } from "@/components/ui/pagination";
 import SeeMorePagination from "../pagination/SeeMorePagination";
-type HomeSeeMorePageProps = {
-  searchParams: Promise<{ movies: MovieType[]; title: string; page: string }>;
-};
+// type HomeSeeMorePageProps = {
+//   searchParams: Promise<{ movies: MovieType[]; title: string; page: string }>;
+// };
+
+type HomeSeeMorePageProps = { movies: MovieType[]; title: string };
+
+// type Props = {
+//   searchParams: {
+//     title: string;
+//     movies: MovieType[];
+//     // movies: movieResponseType
+//     page: string;
+//   };
+// };
 
 export const HomeSeeMorePage = async ({
-  searchParams,
+  movies,
+  title,
 }: HomeSeeMorePageProps) => {
-  const params = await searchParams;
-  const title = params.title;
-  const movies = params.movies;
-  const page = params.page || "1";
+  // export const HomeSeeMorePage = async ({
+  //   searchParams: { title, page, movies },
+  // }: Props) => {
+
+  // const params = await searchParams;
+  // const title = params.title;
+  // const movies = params.movies;
+  // const page = params.page || "1";
 
   // const movieRes: movieResponseType = await getMoviesList(title, page);
   return (
@@ -42,7 +58,7 @@ export const HomeSeeMorePage = async ({
         ))}
       </div>
       <div className="my-8 flex justify-end">
-        <SeeMorePagination title={title}></SeeMorePagination>
+        {/* <SeeMorePagination title={title}></SeeMorePagination> */}
         {/* <Pagination className=" justify-end">
           <PaginationContent>
             <PaginationItem>

@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -13,18 +14,22 @@ import Link from "next/link";
 import { getMovieGenres } from "../../../utils/get-data";
 import { GenreResponseType } from "../../../types";
 
-export async function GenreDropDown() {
-  const genresResponse: GenreResponseType = await getMovieGenres();
-  console.log("movie genre", genresResponse);
+export function GenreDropDown({
+  genresResponse,
+}: {
+  genresResponse: GenreResponseType;
+}) {
+  // const genresResponse: GenreResponseType = await getMovieGenres();
+  // console.log("movie genre", genresResponse);
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="outline">
-          <ChevronDown /> Genre
+          <ChevronDown /> <span className="hidden md:block">Genre</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-[577px] p-5" align="start">
+      <DropdownMenuContent className="md:w-[577px] w-[335px] p-5" align="start">
         <DropdownMenuLabel className="text-[24px] leading-8 font-[600]">
           Genres
         </DropdownMenuLabel>
@@ -32,7 +37,7 @@ export async function GenreDropDown() {
           See lists of movies by genre
         </p>
         <DropdownMenuSeparator />
-        <DropdownMenuItem className="flex flex-wrap gap-4 mt-3 hover:!bg-transparent">
+        <DropdownMenuItem className="flex flex-wrap gap-4 md:mt-3 mt-4 hover:!bg-transparent">
           {genresResponse.genres?.map((genre) => (
             <Link href={`/genre?id=${genre.id}`} key={genre.id}>
               <Badge

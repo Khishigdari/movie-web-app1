@@ -7,3 +7,4 @@ export * from "../detail/DetailDynamicPage";
 export * from "./HomeSeeMorePage";
 export * from "../search/SearchSection";
 export * from "../search/SearchMovieCard";
+export * from "./MobileCarouselDesc";

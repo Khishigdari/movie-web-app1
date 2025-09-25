@@ -40,15 +40,15 @@ const DetailUpperInfo = async ({ id }: DetailDynamicPageProps) => {
           </div>
         </div>
       </div>
-      <div className="flex gap-[32px] mb-[32px] ">
+      <div className="md:flex md:gap-[32px] mb-[32px] ">
         <img
           src={`https://image.tmdb.org/t/p/original/${detail.poster_path}`}
-          className="w-[290px] h-[428px] bg-[#F4F4F5] rounded-lg"
+          className="w-[290px] h-[428px] hidden md:block bg-[#F4F4F5] rounded-lg"
         ></img>
         <div className="relative">
           <img
             src={`https://image.tmdb.org/t/p/original/${detail.backdrop_path}`}
-            className="w-[760px] h-[428px] bg-[#F4F4F5] rounded-lg "
+            className="w-[760px] h-[428px] bg-[#F4F4F5] md:rounded-lg "
           ></img>
           <div className="flex gap-3 absolute top-[364px] left-6 items-center text-white">
             <TrailerDialog youtubeKey={trailer?.key} />
@@ -57,6 +57,12 @@ const DetailUpperInfo = async ({ id }: DetailDynamicPageProps) => {
             <p className="text-[16px] leading-[20px]">2:35</p>
           </div>
         </div>
+        {/* <div className="px-5">
+          <img
+            src={`https://image.tmdb.org/t/p/original/${detail.poster_path}`}
+            className="w-[100px] h-[148px] block md:hidden bg-[#F4F4F5] md:rounded-lg mt-8 "
+          ></img>
+        </div> */}
       </div>
     </div>
   );
