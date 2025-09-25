@@ -19,7 +19,7 @@ type movieCardProps = {
 export const SimilarMovies = ({ title, rating, image, id }: movieCardProps) => {
   return (
     <Link href={`/detail/${id}`}>
-      <Card className="w-[190px] bg-secondary p-0 overflow-hidden gap-2 shadow-none border-0 flex mt-8">
+      <Card className="w-[190px] bg-secondary p-0 overflow-hidden gap-2 shadow-none border-0 flex ">
         <CardContent className="p-0  ">
           <div className=" border-0 bg-[#000000] w-[190px] h-[280px]">
             <Image

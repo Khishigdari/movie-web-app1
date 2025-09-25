@@ -15,7 +15,7 @@ export const DetailDynamicPage = async ({ id }: DetailDynamicPageProps) => {
 
   return (
     <div>
-      <div className="mt-[52px] max-w-[1080px] m-auto">
+      <div className="md:mt-[52px] mt-[32px] max-w-[1080px] m-auto">
         <DetailUpperInfo id={id} />
         <div className="px-5 md:px-0 flex gap-[34px]">
           <img

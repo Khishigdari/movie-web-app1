@@ -66,26 +66,28 @@ const DetailInfos = async ({ id }: DetailDynamicPageProps) => {
         </div>
         <div className="w-full border border-[#E4E4E7] mt-2 mb-8"></div>
       </div>
-      <div className="flex justify-between items-center">
-        <h3 className="text-[24px] leading-8 font-[600]">More like this</h3>
-        <Link
-          href={`/similarSeeMore?id=${id}`}
-          className="flex gap-2 items-center text-[14px] leading-5 font-[500]"
-        >
-          {" "}
-          See more <FiArrowRight width={16} height={16} />
-        </Link>
-      </div>
-      <div className="flex justify-between gap-[32px] mt-8 flex-wrap">
-        {similar.results?.slice(0, 5).map((movie: MovieType) => (
-          <SimilarMovies
-            key={movie.id}
-            id={movie.id}
-            title={movie.title}
-            rating={movie.vote_average}
-            image={movie.poster_path}
-          />
-        ))}
+      <div className="md:p-0 px-5">
+        <div className="flex justify-between items-center mb-8">
+          <h3 className="text-[24px] leading-8 font-[600]">More like this</h3>
+          <Link
+            href={`/similarSeeMore?id=${id}`}
+            className="flex gap-2 items-center text-[14px] leading-5 font-[500]"
+          >
+            {" "}
+            See more <FiArrowRight width={16} height={16} />
+          </Link>
+        </div>
+        <div className="flex justify-between gap-[32px] mt-8 flex-wrap p-0">
+          {similar.results?.slice(0, 5).map((movie: MovieType) => (
+            <SimilarMovies
+              key={movie.id}
+              id={movie.id}
+              title={movie.title}
+              rating={movie.vote_average}
+              image={movie.poster_path}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
