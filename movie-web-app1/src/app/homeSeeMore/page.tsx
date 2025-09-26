@@ -40,7 +40,7 @@ const SeeMorePage = async ({ searchParams: { title } }: Props) => {
   return (
     <div className="flex justify-between max-w-[1280px] m-auto md:mt-[52px] mt-0 p-5 md:p-0 ">
       <h2 className="text-6 leading-8 font-[600]"></h2>
-      <div className="flex justify-between gap-[32px] mt-8 flex-wrap">
+      <div className="flex justify-between gap-[32px] flex-wrap">
         <HomeSeeMorePage movies={movies!.results} title={title} />
       </div>
     </div>

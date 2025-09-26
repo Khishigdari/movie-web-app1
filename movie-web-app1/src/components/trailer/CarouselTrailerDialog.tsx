@@ -30,6 +30,15 @@ export const CarouselTrailerDialog = ({
             src={`https://www.youtube.com/embed/${youtubeKey}`}
             title="Use Strategic Thinking to Create the Life You Want"
             allowFullScreen
+            className="hidden md:block"
+          ></iframe>
+          <iframe
+            width="full"
+            height="403"
+            src={`https://www.youtube.com/embed/${youtubeKey}`}
+            title="Use Strategic Thinking to Create the Life You Want"
+            allowFullScreen
+            className="block md:hidden"
           ></iframe>
         </DialogHeader>
       </DialogContent>

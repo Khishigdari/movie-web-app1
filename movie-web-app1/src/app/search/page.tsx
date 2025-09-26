@@ -19,16 +19,16 @@ const Home = async ({ searchParams }: SearchPageProps) => {
   console.log("searchResponse", searchResponse);
 
   return (
-    <div className="mt-[52px] m-auto flex flex-col justify-between max-w-[1280px]">
-      <h2 className="text-[30px] leading-[36px] font-600 font-semibold">
+    <div className="md:mt-[52px] mt-[32px] m-auto flex flex-col justify-between max-w-[1280px] max-md:px-5">
+      <h2 className="md:text-[30px] text-[24px] leading-[32px] md:leading-[36px] font-600 font-semibold">
         Search results
       </h2>
-      <div className="flex justify-between">
+      <div className="flex justify-between  max-md:flex-col">
         <div className="mt-[32px]">
           <p className="text-[20px] leading-[28px] font-600 font-semibold mb-[32px]">
             {searchResponse.total_results} result for "{searchValue}"
           </p>
-          <div className="flex gap-[48px] flex-wrap max-w-[804px]">
+          <div className="flex md:gap-[48px] gap-5 flex-wrap max-w-[804px]">
             {searchResponse?.results.slice(0, 8).map((movie) => {
               return (
                 <SearchMovieCard
@@ -42,14 +42,14 @@ const Home = async ({ searchParams }: SearchPageProps) => {
             })}
           </div>
         </div>
-        <div>
+        <div className=" max-md:mt-[32px]">
           <div className="mb-5">
-            <h3 className="text-6 leading-8 font-[600] mb-1">
+            <h3 className="md:text-6 md:leading-8 text-[20px] leading-7 font-[600] mb-1">
               Search by genre
             </h3>
             <p className="text-4 leading-6">See lists of movies by genre</p>
           </div>
-          <div className="flex flex-wrap gap-4 mt-3 w-[387px]">
+          <div className="flex flex-wrap gap-4 mt-3 md:w-[387px]">
             {genresResponse.genres?.map((genre) => (
               <Link href={`/genre?id=${genre.id}`} key={genre.id}>
                 <Badge

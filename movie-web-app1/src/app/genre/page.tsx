@@ -34,15 +34,22 @@ const Genre = async ({ searchParams }: GenrePageProps) => {
   const genreName: GenreType = await getMovieGenres();
   // console.log(genreName, "genre name");
   return (
-    <div className="mt-[52px] w-[1437px]  flex gap-10 justify-between m-auto">
+    <div className="mt-[52px] md:w-[1437px]  flex gap-10 md:justify-between m-auto  max-md:flex-col max-md:px-5">
       {" "}
       <div>
-        <h2 className="mb-8 text-[30px] leading-9 font-[600]">Search filter</h2>
+        <h2 className="mb-8 md:text-[30px] text-[24px] leading-8 md:leading-9 font-[600]">
+          Search filter
+        </h2>
         <div className="mb-5">
-          <h3 className="text-6 leading-8 font-[600] mb-1">Genres</h3>
+          <h3 className="hidden md:block text-6 leading-8 font-[600] mb-1">
+            Genres
+          </h3>
+          <h3 className="block md:hidden text-4 leading-7 font-[600] mb-1">
+            Search by genre
+          </h3>
           <p className="text-4 leading-6">See lists of movies by genre</p>
         </div>
-        <div className="flex flex-wrap gap-4 mt-3 w-[387px]">
+        <div className="flex flex-wrap gap-4 mt-3 md:w-[387px]">
           {genresResponse.genres?.map((genre) => (
             <Link href={`/genre?id=${genre.id}`} key={genre.id}>
               <Badge
@@ -59,7 +66,7 @@ const Genre = async ({ searchParams }: GenrePageProps) => {
       </div>
       <div>
         <div className="flex gap-2">
-          <div className="border boder-[#E4E4E7] h-[1500px] w-0 mr-[16px] ml-1"></div>
+          <div className="border boder-[#E4E4E7] h-[1500px] w-0 mr-[16px] ml-1 hidden md:block"></div>
           <div>
             <h4 className="text-5 leading-7 font-[600] mb-8">
               {filteredMoviesResponse.total_results} titles in {genreName.name}

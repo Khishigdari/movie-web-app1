@@ -77,7 +77,7 @@ const DetailInfos = async ({ id }: DetailDynamicPageProps) => {
             See more <FiArrowRight width={16} height={16} />
           </Link>
         </div>
-        <div className="flex justify-between gap-[32px] mt-8 flex-wrap p-0">
+        <div className="flex justify-between md:gap-[32px] gap-[20px] mt-8 flex-wrap p-0">
           {similar.results?.slice(0, 5).map((movie: MovieType) => (
             <SimilarMovies
               key={movie.id}

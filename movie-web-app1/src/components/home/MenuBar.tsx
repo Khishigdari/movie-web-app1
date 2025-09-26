@@ -16,13 +16,13 @@ export const MenuBar = async () => {
         className="max-w-[1280px]  m-auto md:px-20 p-5 md:py-[11.5px] flex justify-between items-center md:mb-6 mb-0
     "
       >
-        <Link href="/">
+        <Link href="/" className="max-md:flex max-md:justify-items-start">
           <Image
             src={"/images/LogoLightMode.svg"}
             alt=""
             width={92}
             height={20}
-            className="hidden md:block"
+            // className="hidden md:block"
           ></Image>
         </Link>
         {/* desktop */}

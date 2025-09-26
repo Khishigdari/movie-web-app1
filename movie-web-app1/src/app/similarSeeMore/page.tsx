@@ -23,11 +23,11 @@ const Home = async ({ searchParams }: DetailDynamicPageProps) => {
   console.log("similar", similar);
 
   return (
-    <div className="max-w-[1280px] m-auto">
-      <p className="text-[30px] leading-[36px] font-[600] mt-[52px]">
+    <div className="max-w-[1280px] m-auto md:p-0 p-5">
+      <p className="md:text-[30px] text-[24px] md:leading-[36px] leading-[32px] font-[600] mt-[32px] md:mt-[52px]">
         More like this
       </p>
-      <div className="flex justify-between gap-[32px] mt-8 flex-wrap">
+      <div className="flex justify-between md:gap-[32px] gap-[20px] md:mt-8 mt-5 flex-wrap">
         {similar.results?.slice(0, 20).map((movie: MovieType) => (
           <SimilarSeeMore
             key={movie.id}

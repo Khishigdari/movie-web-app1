@@ -16,31 +16,41 @@ const DetailPageSkeleton = async ({ id }: DetailSkeletonProps) => {
       <div className="mt-[52px] max-w-[1080px] m-auto">
         <div className="flex justify-between items-center mb-[24px]">
           <div>
-            <h1 className="w-[211px] mb-1 h-[40px] rounded-full bg-[#F4F4F5]"></h1>
-            <p className="w-[237px] mb-6 h-[28px] rounded-full bg-[#F4F4F5]"></p>
+            <h1 className="md:w-[211px] w-[133px] mb-1 h-[40px] rounded-full bg-[#F4F4F5]"></h1>
+            <p className="md:w-[237px] w-[191px] h-[18px] mb-6 md:h-[28px] rounded-full bg-[#F4F4F5]"></p>
           </div>
           <div>
-            <p className="text-[12px] leading-[16px] font-[500]">Rating</p>
+            <p className="md:block hidden text-[12px] leading-[16px] font-[500]">
+              Rating
+            </p>
             <p className="w-[83px] h-[20px] bg-[#F4F4F5] rounded-full mb-2 mt-1"></p>
-            <p className="w-[83px] h-[20px] bg-[#F4F4F5] rounded-full"></p>
+            <p className="md:block hidden w-[83px] h-[20px] bg-[#F4F4F5] rounded-full"></p>
           </div>
         </div>
         <div className="flex gap-[32px] mb-[32px]">
-          <div className="w-[290px] h-[428px] bg-[#F4F4F5] rounded-lg"></div>
+          <div className="hidden md:block md:w-[290px] w-[100px] h-[148px] md:h-[428px] bg-[#F4F4F5] rounded-lg"></div>
           <div className="w-[760px] h-[428px] bg-[#F4F4F5] rounded-lg"></div>
         </div>
-        <div className="flex gap-3 ">
-          {genres.genres?.map((genre) => (
-            <Badge
-              key={genre.id}
-              className="rounded-full border border-[#E4E4E7] bg-transparent text-black"
-            >
-              <p>{genre.name}</p>
-            </Badge>
-          ))}
+        <div className="flex gap-[34px]">
+          <div className="block md:hidden w-[100px] h-[148px] bg-[#F4F4F5] rounded-lg"></div>{" "}
+          <div className="flex flex-col">
+            <div className="flex gap-3 h-[20px]">
+              {genres.genres?.map((genre) => (
+                <Badge
+                  key={genre.id}
+                  className="rounded-full border border-[#E4E4E7] bg-transparent text-black"
+                >
+                  <p>{genre.name}</p>
+                </Badge>
+              ))}
+            </div>
+            <div className="block md:hidden bg-[#F4F4F5] mt-5 rounded-full  w-[201px] h-[20px] "></div>
+          </div>
         </div>
-        <div className="bg-[#F4F4F5] mt-5 rounded-full w-[1080px] h-[22px]"></div>
-        <div className="bg-[#F4F4F5] rounded-full w-[699px] h-[22px] mt-1"></div>
+        <div className="hidden md:block">
+          <div className="bg-[#F4F4F5] mt-5 rounded-full md:w-[1080px] w-[201px] h-[20px] md:h-[22px]"></div>
+          <div className="bg-[#F4F4F5] rounded-full w-[699px] h-[22px] mt-1"></div>
+        </div>
         <div className="flex gap-[53px] mb-1 mt-5">
           <div className="w-16 h-7 bg-[#F4F4F5] rounded-full"></div>
           <div className="w-[137px] h-7 bg-[#F4F4F5] rounded-full"></div>
@@ -48,22 +58,22 @@ const DetailPageSkeleton = async ({ id }: DetailSkeletonProps) => {
         <div className="w-full border border-[#F4F4F5] mt-2 mb-8"></div>
         <div className="flex gap-[53px] mb-1 mt-5">
           <div className="w-16 h-7 bg-[#F4F4F5] rounded-full"></div>
-          <div className="w-[360px] h-7 bg-[#F4F4F5] rounded-full"></div>
+          <div className="md:w-[360px] w-[218px] h-7 bg-[#F4F4F5] rounded-full"></div>
         </div>
         <div className="w-full border border-[#F4F4F5] mt-2 mb-8"></div>
         <div className="flex gap-[53px] mb-1 mt-5">
           <div className="w-16 h-7 bg-[#F4F4F5] rounded-full"></div>
-          <div className="w-[360px] h-7 bg-[#F4F4F5] rounded-full"></div>
+          <div className="md:w-[360px] w-[218px] h-7 bg-[#F4F4F5] rounded-full"></div>
         </div>
         <div className="w-full border border-[#F4F4F5] mt-2 mb-8"></div>
         <div className="flex justify-between">
-          <div className="w-[250px] h-8 rounded-full bg-[#F4F4F5] my-8"></div>
-          <div className="w-[165px] h-8 rounded-full bg-[#F4F4F5] my-8"></div>
+          <div className="md:w-[250px] w-[145px] h-8 rounded-full bg-[#F4F4F5] my-8"></div>
+          <div className="md:w-[165px] w-[125px] h-8 rounded-full bg-[#F4F4F5] my-8"></div>
         </div>
-        <div className="flex gap-8">
+        <div className="flex md:gap-8 gap-5">
           {Array.from({ length: 5 }).map((_, i) => (
             <Skeleton
-              className="w-[190px] h-[372px] rounded-lg bg-[#F4F4F5]"
+              className="md:w-[190px] w-[157px] h-[309px] md:h-[372px] rounded-lg bg-[#F4F4F5] overflow-x-scroll"
               key={i}
             />
           ))}

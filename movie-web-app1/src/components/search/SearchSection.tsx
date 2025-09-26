@@ -74,7 +74,7 @@ const SearchResults = ({
       <PopoverTrigger className=" flex justify-self-center"></PopoverTrigger>
       {/* <div className=""> */}
       <PopoverContent
-        className="w-[577px] justify-center flex flex-col"
+        className="md:w-[577px] w-[335px] justify-center flex flex-col"
         side="bottom"
         sideOffset={4.5}
         align="center"

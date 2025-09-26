@@ -44,9 +44,11 @@ export const HomeSeeMorePage = async ({
   return (
     <div>
       <div className="flex justify-between max-w-[1280px] m-auto ">
-        <h2 className="text-[30px] leading-9 font-[600]">{title}</h2>
+        <h2 className="md:text-[30px] text-[24px] leading-[32px] md:leading-9 font-[600]">
+          {title}
+        </h2>
       </div>
-      <div className="flex justify-between gap-[32px] mt-8 flex-wrap">
+      <div className="flex justify-between md:gap-[32px] gap-[20px] mt-[20px] md:mt-8 flex-wrap">
         {movies?.slice(0, 15).map((movie) => (
           <MovieCard
             key={movie.id}
