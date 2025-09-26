@@ -34,7 +34,7 @@ export const DetailDynamicPage = async ({ id }: DetailDynamicPageProps) => {
                 </Badge>
               ))}
             </div>
-            <div className="text-[16px] leading-[24px] my-5">
+            <div className="block md:hidden text-[16px] leading-[24px] my-5">
               {detail.overview}
             </div>
           </div>
