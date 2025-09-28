@@ -6,16 +6,26 @@ import { Badge } from "@/components/ui/badge";
 import { getMovieGenres, getSearchedMovies } from "../../../utils/get-data";
 
 type SearchPageProps = {
-  searchParams: Promise<{ value: string }>;
+  searchParams: Promise<{ value: string; genreId: string }>;
 };
 
 const Home = async ({ searchParams }: SearchPageProps) => {
   const genresResponse: GenreResponseType = await getMovieGenres();
-  const params = await searchParams;
-  const searchValue = params.value;
-  const searchResponse: movieResponseType = await getSearchedMovies(
-    searchValue
-  );
+  // const params = await searchParams;
+  const { value, genreId } = await searchParams;
+
+  // const searchValue = params.value;
+  // const searchResponse: movieResponseType = await getSearchedMovies(
+  //   searchValue
+  // );
+  const searchResponse: movieResponseType = await getSearchedMovies(value);
+  const filteredMovies = genreId
+    ? searchResponse.results.filter((movie) =>
+        movie.genre_ids.includes(Number(genreId))
+      )
+    : searchResponse.results;
+  const url = `/search?value=${value}&`;
+
   console.log("searchResponse", searchResponse);
 
   return (
@@ -26,10 +36,12 @@ const Home = async ({ searchParams }: SearchPageProps) => {
       <div className="flex justify-between  max-md:flex-col">
         <div className="mt-[32px]">
           <p className="text-[20px] leading-[28px] font-600 font-semibold mb-[32px]">
-            {searchResponse.total_results} result for "{searchValue}"
+            {searchResponse.total_results} result for "{value}"
+            {/* {searchResponse.total_results} result for "{searchValue}" */}
           </p>
           <div className="flex md:gap-[48px] gap-5 flex-wrap max-w-[804px]">
-            {searchResponse?.results.slice(0, 8).map((movie) => {
+            {/* {searchResponse?.results.slice(0, 8).map((movie) => { */}
+            {filteredMovies?.slice(0, 8).map((movie) => {
               return (
                 <SearchMovieCard
                   key={movie.id}

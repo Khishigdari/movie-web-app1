@@ -21,7 +21,8 @@ export const SearchSection = () => {
     setFoundMovies(foundData);
   };
 
-  const isOpen = isFocused && searchValue;
+  // const isOpen = isFocused && searchValue;
+  const isOpen = isFocused && searchValue !== "";
 
   const handleBlur = () => {
     setTimeout(() => setIsFocused(false), 300);
@@ -39,7 +40,7 @@ export const SearchSection = () => {
         // onBlur={() => setIsFocused(false)}
         onBlur={handleBlur}
       />
-
+      {/* {foundMovies && ()} */}
       <SearchResults
         isOpen={isOpen}
         foundMovies={foundMovies}
@@ -52,9 +53,9 @@ export const SearchSection = () => {
 type SearchResultsProps = {
   isOpen: boolean;
   // foundMovies: MovieType[];
-  foundMovies: movieResponseType;
+  foundMovies: movieResponseType | null;
   searchValue: string;
-  setIsOpen: boolean;
+  // setIsOpen: boolean;
 };
 
 const SearchResults = ({
@@ -62,6 +63,8 @@ const SearchResults = ({
   foundMovies,
   searchValue,
 }: SearchResultsProps) => {
+  if (!isOpen || !foundMovies) return null;
+
   return (
     <Popover
       open={isOpen}
