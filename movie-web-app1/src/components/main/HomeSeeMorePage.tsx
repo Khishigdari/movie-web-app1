@@ -2,45 +2,30 @@ import { movieResponseType, MovieType } from "../../../types";
 import { getMoviesList } from "../../../utils/get-data";
 
 import { MovieCard } from "../home";
-// import {
-//   Pagination,
-//   PaginationContent,
-//   PaginationEllipsis,
-//   PaginationItem,
-//   PaginationLink,
-//   PaginationNext,
-//   PaginationPrevious,
-// } from "@/components/ui/pagination";
-import SeeMorePagination from "../pagination/SeeMorePagination";
-// type HomeSeeMorePageProps = {
-//   searchParams: Promise<{ movies: MovieType[]; title: string; page: string }>;
-// };
+import { PaginationComp } from "../pagination/SeeMorePagination";
 
-type HomeSeeMorePageProps = { movies: MovieType[]; title: string };
+// type HomeSeeMorePageProps = { movies: MovieType[]; title: string };
 
-// type Props = {
-//   searchParams: {
-//     title: string;
-//     movies: MovieType[];
-//     // movies: movieResponseType
-//     page: string;
-//   };
-// };
+type HomeSeeMorePageProps = {
+  searchParams: Promise<{ title: string; page: string }>;
+  params: Promise<{ link: string }>;
+};
 
 export const HomeSeeMorePage = async ({
-  movies,
-  title,
+  searchParams,
+  params,
 }: HomeSeeMorePageProps) => {
-  // export const HomeSeeMorePage = async ({
-  //   searchParams: { title, page, movies },
-  // }: Props) => {
+  // const { link } = await params;
+  const dynamicRoute = await params;
+  const link = dynamicRoute.link;
 
-  // const params = await searchParams;
-  // const title = params.title;
-  // const movies = params.movies;
-  // const page = params.page || "1";
+  const searchQuery = await searchParams;
+  const title = searchQuery.title;
+  const page = searchQuery.page || "1";
 
-  // const movieRes: movieResponseType = await getMoviesList(title, page);
+  const currentUrl = `/homeSeeMore?title=${title}&`;
+
+  const moviesRes: movieResponseType = await getMoviesList(title, page);
   return (
     <div>
       <div className="flex justify-between max-w-[1280px] m-auto ">
@@ -49,7 +34,7 @@ export const HomeSeeMorePage = async ({
         </h2>
       </div>
       <div className="flex justify-between md:gap-[32px] gap-[20px] mt-[20px] md:mt-8 flex-wrap">
-        {movies?.slice(0, 15).map((movie) => (
+        {moviesRes.results.map((movie) => (
           <MovieCard
             key={movie.id}
             id={movie.id}
@@ -59,25 +44,8 @@ export const HomeSeeMorePage = async ({
           />
         ))}
       </div>
-      <div className="my-8 flex justify-end">
-        {/* <SeeMorePagination title={title}></SeeMorePagination> */}
-        {/* <Pagination className=" justify-end">
-          <PaginationContent>
-            <PaginationItem>
-              <PaginationPrevious href="#" />
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationLink href="#">1</PaginationLink>
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationEllipsis />
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationNext href="#" />
-            </PaginationItem>
-          </PaginationContent>
-        </Pagination> */}
-      </div>
+      <div className="my-8 flex justify-end"></div>
+      <PaginationComp url={currentUrl} page={page} />
     </div>
   );
 };

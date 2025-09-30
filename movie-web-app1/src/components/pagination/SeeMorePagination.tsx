@@ -1,61 +1,58 @@
-"use client";
-import { useState } from "react";
-// import { movieResponseType, MovieType } from "../../../types";
+import React from "react";
 import {
   Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
   PaginationNext,
   PaginationPrevious,
 } from "../ui/pagination";
 
-type SeeMorePaginationProps = {
-  // movies: MovieType[];
-  title: string;
-  // currentPage: number;
+type PaginationCompProps = {
+  page: string;
+  url: string;
 };
-
-// interface Props {
-//   searchParams: {
-//     title: string;
-//     // movies: MovieType[];
-//   };
-// }
-
-// // const items = Array.from({ length: 100 }, (_, index) => `Item ${index + 1}`);
-
-// // const itemsPerPage = 10;
-
-const SeeMorePagination = ({ title }: SeeMorePaginationProps) => {
-  // currentPage = 1;
-  const [currentPage, setCurrentPage] = useState(1);
-  //   // const totalPages = Math.ceil(items.length / itemsPerPage);
-  //   // const currenItems = items.slice(
-  //   //   (currentPage - 1) * itemsPerPage,
-  //   //   currentPage * itemsPerPage
-  //   // );
-
-  // if (title === "Now Playing") {
-  //   movies = await getNOwPlayingMovies();
-  // } else if (title === "Upcoming") {
-  //   movies = await getUpcomingMovies();
-  // } else if (title === "Top Rated") {
-  //   movies = await getTopRatedMovies();
-  // } else if (title === "Popular") {
-  //   movies = await getPopularMovies();
-  // }
+export const PaginationComp = ({ page, url }: PaginationCompProps) => {
   return (
-    <div>
-      <Pagination>
-        <PaginationPrevious
-          href={`/homeSeeMore?title=${title}&page=${currentPage}`}
-          onClick={() => setCurrentPage((prev) => prev--)}
-        />
-        <PaginationNext
-          href={`/homeSeeMore?title=${title}&page=${currentPage}`}
-          onClick={() => setCurrentPage((prev) => prev++)}
-        />
-      </Pagination>
-    </div>
+    <Pagination className="justify-end">
+      <PaginationContent>
+        <PaginationItem>
+          <PaginationPrevious
+            href={`${url}page=${Number(page) - 1}`}
+            aria-disabled={Number(page) <= 1}
+            tabIndex={Number(page) <= 1 ? -1 : undefined}
+            className={
+              Number(page) <= 1 ? "pointer-events-none opacity-30" : undefined
+            }
+          />
+        </PaginationItem>
+        {page !== "1" && (
+          <>
+            <PaginationItem>
+              <PaginationLink href={`${url}page=${Number(page) - 1}`}>
+                {Number(page) - 1}
+              </PaginationLink>
+            </PaginationItem>
+          </>
+        )}
+        <PaginationItem>
+          <PaginationLink isActive href="#">
+            {page}
+          </PaginationLink>
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationLink href={`${url}page=${Number(page) + 1}`}>
+            {Number(page) + 1}
+          </PaginationLink>
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationEllipsis />
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationNext href={`${url}page=${Number(page) + 1}`} />
+        </PaginationItem>
+      </PaginationContent>
+    </Pagination>
   );
 };
-
-export default SeeMorePagination;
