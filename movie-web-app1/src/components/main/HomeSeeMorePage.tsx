@@ -9,6 +9,8 @@ import { PaginationComp } from "../pagination/SeeMorePagination";
 type HomeSeeMorePageProps = {
   searchParams: Promise<{ title: string; page: string }>;
   params: Promise<{ link: string }>;
+  //   searchParams: { title: string; page: string };
+  // params: { link: string };
 };
 
 export const HomeSeeMorePage = async ({
