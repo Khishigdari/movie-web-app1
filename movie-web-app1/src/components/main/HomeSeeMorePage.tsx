@@ -19,15 +19,16 @@ export const HomeSeeMorePage = async ({
 }: HomeSeeMorePageProps) => {
   // const { link } = await params;
   const dynamicRoute = await params;
-  const link = dynamicRoute.link;
+  // const link = dynamicRoute.link;
 
   const searchQuery = await searchParams;
-  const title = searchQuery.title;
-  const page = searchQuery.page || "1";
+  const title = searchQuery?.title;
+  const page = searchQuery?.page || "1";
 
   const currentUrl = `/homeSeeMore?title=${title}&`;
 
   const moviesRes: movieResponseType = await getMoviesList(title, page);
+  console.log({ moviesRes });
   return (
     <div>
       <div className="flex justify-between max-w-[1280px] m-auto ">
@@ -36,7 +37,7 @@ export const HomeSeeMorePage = async ({
         </h2>
       </div>
       <div className="flex justify-between md:gap-[32px] gap-[20px] mt-[20px] md:mt-8 flex-wrap">
-        {moviesRes.results.map((movie) => (
+        {moviesRes.results?.map((movie) => (
           <MovieCard
             key={movie.id}
             id={movie.id}
@@ -47,7 +48,7 @@ export const HomeSeeMorePage = async ({
         ))}
       </div>
       <div className="my-8 flex justify-end"></div>
-      <PaginationComp url={currentUrl} page={page} />
+      {/* <PaginationComp url={currentUrl} page={page} /> */}
     </div>
   );
 };
