@@ -12,28 +12,19 @@ type HomeSeeMorePageProps = {
 
 export default async function HomeSeeMorePage({
   searchParams,
-  params,
-}: HomeSeeMorePageProps) => {
-  // const { link } = await params;
-  const dynamicRoute = await params;
-  const link = dynamicRoute.link;
+}: HomeSeeMorePageProps) {
+  const type = searchParams.type ?? "popular";
+  const title = searchParams.title ?? "Movies";
+  const page = searchParams.page ?? "1";
 
-  const searchQuery = await searchParams;
-  const title = searchQuery.title;
-  const page = searchQuery.page || "1";
+  const movies: movieResponseType = await getMoviesList(type, page);
 
-  const currentUrl = `/homeSeeMore?title=${title}&`;
-
-  const moviesRes: movieResponseType = await getMoviesList(title, page);
   return (
-    <div>
-      <div className="flex justify-between max-w-[1280px] m-auto ">
-        <h2 className="md:text-[30px] text-[24px] leading-[32px] md:leading-9 font-[600]">
-          {title}
-        </h2>
-      </div>
-      <div className="flex justify-between md:gap-[32px] gap-[20px] mt-[20px] md:mt-8 flex-wrap">
-        {moviesRes.results.map((movie) => (
+    <div className="max-w-[1280px] mx-auto px-4 py-8">
+      <h1 className="text-2xl font-semibold mb-6">{title}</h1>
+
+      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
+        {movies.results.map((movie: MovieType) => (
           <MovieCard
             key={movie.id}
             id={movie.id}
@@ -43,8 +34,6 @@ export default async function HomeSeeMorePage({
           />
         ))}
       </div>
-      <div className="my-8 flex justify-end"></div>
-      <PaginationComp url={currentUrl} page={page} />
     </div>
   );
 }
