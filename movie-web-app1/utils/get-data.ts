@@ -12,6 +12,7 @@ export const getMoviesList = async (listName: string, page?: string) => {
     }
   );
   const data = await res.json();
+  console.log({ data });
   return data;
 };
 
