@@ -1,31 +1,25 @@
-import { HomeSeeMorePage } from "@/components";
-import { movieResponseType, MovieType } from "../../../types";
+import { movieResponseType } from "../../../types";
 import {
-  getMoviesList,
   getNOwPlayingMovies,
-  getPopularMovies,
-  getTopRatedMovies,
   getUpcomingMovies,
+  getTopRatedMovies,
+  getPopularMovies,
 } from "../../../utils/get-data";
+import { MovieCard } from "@/components/home/MovieCard";
 
 type Props = {
   searchParams: {
     title: string;
-    // movies: movieResponseType
-    // page: string;
   };
 };
 
 const SeeMorePage = async ({ searchParams: { title } }: Props) => {
-  let movies: movieResponseType;
-  // let movies: MovieType[];
-
-  // const params = searchParams;
-  // const title = params.title;
-  // // const movies = params.movies;
-  // const page = params.page || "1";
-
-  // const movieRes: movieResponseType = await getMoviesList(title, page);
+  let movies: movieResponseType = {
+    results: [],
+    page: 1,
+    totalPages: 1,
+    total_results: 0,
+  };
 
   if (title === "Now Playing") {
     movies = await getNOwPlayingMovies();
@@ -38,10 +32,19 @@ const SeeMorePage = async ({ searchParams: { title } }: Props) => {
   }
 
   return (
-    <div className="flex justify-between max-w-[1280px] m-auto md:mt-[52px] mt-0 p-5 md:p-0 ">
-      <h2 className="text-6 leading-8 font-[600]"></h2>
-      <div className="flex justify-between gap-[32px] flex-wrap">
-        <HomeSeeMorePage />
+    <div className="max-w-[1280px] mx-auto px-5 md:px-0 py-8">
+      <h1 className="text-2xl font-semibold mb-6">{title}</h1>
+
+      <div className="flex flex-wrap gap-6 justify-between">
+        {movies.results.map((movie) => (
+          <MovieCard
+            key={movie.id}
+            id={movie.id}
+            title={movie.title}
+            rating={movie.vote_average}
+            image={movie.poster_path}
+          />
+        ))}
       </div>
     </div>
   );

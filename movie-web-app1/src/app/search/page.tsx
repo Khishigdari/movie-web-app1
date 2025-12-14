@@ -40,18 +40,23 @@ const Home = async ({ searchParams }: SearchPageProps) => {
             {/* {searchResponse.total_results} result for "{searchValue}" */}
           </p>
           <div className="flex md:gap-[48px] gap-5 flex-wrap max-w-[804px]">
-            {/* {searchResponse?.results.slice(0, 8).map((movie) => { */}
-            {filteredMovies?.slice(0, 8).map((movie) => {
-              return (
-                <SearchMovieCard
-                  key={movie.id}
-                  id={movie.id}
-                  title={movie.title}
-                  rating={movie.vote_average}
-                  image={movie.poster_path}
-                />
-              );
-            })}
+            {filteredMovies && filteredMovies.length > 0 ? (
+              filteredMovies
+                .slice(0, 8)
+                .map((movie) => (
+                  <SearchMovieCard
+                    key={movie.id}
+                    id={movie.id}
+                    title={movie.title}
+                    rating={movie.vote_average}
+                    image={movie.poster_path}
+                  />
+                ))
+            ) : (
+              <p className="text-center text-gray-500 py-10 w-full">
+                No results found for "{value}"
+              </p>
+            )}
           </div>
         </div>
         <div className=" max-md:mt-[32px]">

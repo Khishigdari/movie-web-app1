@@ -11,7 +11,7 @@ import { MovieCard } from "../home";
 //   PaginationNext,
 //   PaginationPrevious,
 // } from "@/components/ui/pagination";
-import SeeMorePagination from "../pagination/SeeMorePagination";
+// import SeeMorePagination from "../pagination/SeeMorePagination";
 type HomeSeeMorePageProps = {
   searchParams: Promise<{ movies: MovieType[]; title: string; page: string }>;
   params: Promise<{ link: string }>;

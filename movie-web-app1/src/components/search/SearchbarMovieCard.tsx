@@ -63,7 +63,6 @@ export const SearchbarMovieCard = ({
                 href={`/detail/${id}`}
                 className="flex gap-2 items-center text-[14px] leading-5 font-[500]"
               >
-                {" "}
                 See more <FiArrowRight width={16} height={16} />
               </a>
             </div>

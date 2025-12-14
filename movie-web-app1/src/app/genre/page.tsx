@@ -35,7 +35,6 @@ const Genre = async ({ searchParams }: GenrePageProps) => {
   // console.log(genreName, "genre name");
   return (
     <div className="mt-[52px] md:w-[1437px]  flex gap-10 md:justify-between m-auto  max-md:flex-col max-md:px-5">
-      {" "}
       <div>
         <h2 className="mb-8 md:text-[30px] text-[24px] leading-8 md:leading-9 font-[600]">
           Search filter
